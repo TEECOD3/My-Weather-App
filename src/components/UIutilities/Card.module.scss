@@ -1,0 +1,13 @@
+.card {
+  background: linear-gradient(to top right, #141414, rgb(73, 71, 71));
+  border-radius: 5rem;
+  padding: 1rem;
+  box-shadow: 0 0.5em 0.5em rgb(105, 105, 105);
+  width: 60%;
+  margin: 0 auto;
+}
+@media (max-width: 50em) {
+  .card {
+    width: 100%;
+  }
+}
