@@ -8,7 +8,7 @@ function WeatherHourUpdates({ className }) {
   return (
     <Card className={className}>
       <section className={classes.hourupdates}>
-        <h1>hourly updates</h1>
+        <h1>hourly forcast</h1>
         <div className={classes.hourupdates_feat}>
           <WeatherHour />
           <WeatherHour />

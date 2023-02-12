@@ -7,7 +7,7 @@ function WeatherDailyUpdates({ className }) {
   return (
     <Card className={className}>
       <section className={classes.Dailyupdates}>
-        <h1>Daily updates</h1>
+        <h1>Daily Forcast</h1>
         <div className={classes.Dailyupdates_feat}>
           <WeatherDaily />
           <WeatherDaily />

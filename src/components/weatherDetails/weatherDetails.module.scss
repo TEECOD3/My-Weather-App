@@ -1,7 +1,6 @@
 .widget {
   &_container {
     position: relative;
-
     padding: 2rem;
     color: #fff;
     font-size: 1rem;
@@ -15,13 +14,16 @@
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-
+  }
+  &_img {
     img {
       right: 0;
       top: -5rem;
       width: 40rem;
-
       position: absolute;
+    }
+    p {
+      text-transform: uppercase;
     }
   }
   &_degs {
@@ -32,6 +34,13 @@
     h3 {
       text-transform: capitalize;
       font-size: 2em;
+    }
+    span {
+      font-size: 1.2em;
+      text-transform: uppercase;
+    }
+    p {
+      text-transform: uppercase;
     }
   }
   &_bottom {
@@ -67,9 +76,10 @@
     &_bottom {
       width: 100%;
       justify-content: center;
+      margin-top: 0.4em;
       span {
         h1 {
-          font-size: 0.8em;
+          font-size: 0.9em;
         }
       }
       .icon {
@@ -80,13 +90,19 @@
       h1 {
         font-size: 7em;
       }
+      span {
+        font-size: 0.7em;
+      }
+      p {
+        font-size: 0.7em;
+      }
     }
   }
 }
-@media only screen and (min-width: 64em) and (max-width: 90em) {
-  .widget {
-    &_container {
-      width: 70%;
-    }
-  }
-}
+// @media only screen and (min-width: 64em) and (max-width: 90em) {
+//   .widget {
+//     &_container {
+//       width: 100%;
+//     }
+//   }
+// }

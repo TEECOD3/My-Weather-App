@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./weatherDetails.module.scss";
 import Card from "../UIutilities/Card";
-import clouds from "../../assets/WeatherIcons/5.png";
+import clouds from "../../assets/WeatherIcons/39git .png";
 import { WiSunrise, WiSunset, WiDaySunny } from "react-icons/wi";
 function WeatherWid({}) {
   return (
@@ -10,6 +10,8 @@ function WeatherWid({}) {
         <div className={classes.widget_degs}>
           <h1>23°</h1>
           <h3>abuja , nigeria</h3>
+          <span>tuesday 31st may 2023 | local time 01:10pm</span>
+          <p>cloudy</p>
         </div>
         <div className={classes.widget_img}>
           <img src={clouds} alt="weather image for weather condition" />
@@ -22,7 +24,7 @@ function WeatherWid({}) {
         </span>
         <span>
           <WiSunset className={classes.icon} />
-          <h1>Set:07:35PM</h1>
+          <h1>Set: 07:35PM</h1>
         </span>
         <span>
           <WiDaySunny className={classes.icon} />
@@ -30,7 +32,7 @@ function WeatherWid({}) {
         </span>
         <span>
           <WiDaySunny className={classes.icon} />
-          <h1> |Low 40°</h1>
+          <h1> Low 40°</h1>
         </span>
       </div>
     </Card>
