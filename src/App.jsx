@@ -1,4 +1,5 @@
 import "./App.scss";
+
 import WeatherBox from "./components/WeatherBox/WeatherBox";
 
 function App() {

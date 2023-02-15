@@ -1,18 +1,19 @@
 import React from "react";
 import Input from "../UIutilities/Input";
-import WeatherDailyUpdates from "../WeatherDailyUpdate/WeatherDailyUpdates";
 import WeatherDetails from "../weatherDetails/WeatherDetails";
-import WeatherHourUpdates from "../WeatherHourUpdate/WeatherHourUpdates";
+import WeatherInfo from "../WeatherInformation/WeatherInfo";
 import classes from "./WeatherBox.module.scss";
+import ContextProvider from "../store/contextProvider";
 
 function WeatherBox() {
   return (
-    <main className={classes.weatherbox}>
-      <Input />
-      <WeatherDetails />
-      <WeatherHourUpdates className={classes.weatherhour} />
-      <WeatherDailyUpdates className={classes.weatherdaily} />
-    </main>
+    <ContextProvider>
+      <main className={classes.weatherbox}>
+        <Input />
+        <WeatherDetails />
+        <WeatherInfo />
+      </main>
+    </ContextProvider>
   );
 }
 

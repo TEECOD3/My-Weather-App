@@ -1,15 +1,22 @@
 import React from "react";
 import classes from "./weatherDetails.module.scss";
 import Card from "../UIutilities/Card";
-import clouds from "../../assets/WeatherIcons/39git .png";
+import clouds from "../../assets/WeatherIcons/39.png";
 import { WiSunrise, WiSunset, WiDaySunny } from "react-icons/wi";
+import { motion } from "framer-motion";
 function WeatherWid({}) {
   return (
     <Card className={classes.widget_container}>
       <div className={classes.widget_top}>
         <div className={classes.widget_degs}>
           <h1>23°</h1>
-          <h3>abuja , nigeria</h3>
+          <motion.h3
+            initial={{ y: -800 }}
+            animate={{ y: 0 }}
+            transition={{ type: "spring", stiffness: 80 }}
+          >
+            abuja , nigeria
+          </motion.h3>
           <span>tuesday 31st may 2023 | local time 01:10pm</span>
           <p>cloudy</p>
         </div>
