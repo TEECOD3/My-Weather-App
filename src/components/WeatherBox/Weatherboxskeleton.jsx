@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import classes from "./WeatherBox.module.scss";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import "react-loading-skeleton/dist/Skeleton.css";
 
 function Weatherboxskeleton() {
   return (
