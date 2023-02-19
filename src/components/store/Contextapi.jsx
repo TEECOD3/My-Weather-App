@@ -1,6 +1,9 @@
 import React from "react";
 
 const Weathercontext = React.createContext({
-  weather: {},
+  onAddCity: (city) => {},
+  cityData: {},
+  loading: "",
+  error: "",
 });
 export default Weathercontext;

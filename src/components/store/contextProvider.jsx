@@ -6,24 +6,33 @@ const ContextProvider = (props) => {
   const { children } = props;
   const [CurrentCity, setCurrentCity] = useState("abuja");
   const [collectedData, SetCollectedData] = useState({});
+  const [error, SetError] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetch = async () => {
-      await fetchFomattedData(CurrentCity).then((data) => {
+    try {
+      setTimeout(async () => {
+        const data = await fetchFomattedData(CurrentCity);
         SetCollectedData(data);
-      });
-    };
-    fetch();
+        setLoading(false);
+      }, 1000);
+    } catch (error) {
+      console.log(error);
+      SetError(true);
+    }
+    return () => clearTimeout();
   }, [CurrentCity]);
 
-  console.log(collectedData);
   const Addcityfunction = (citySelected) => {
-    setCurrentCity(citySelected);
+    const current = citySelected.toString();
+    setCurrentCity(current);
   };
 
   const weatherData = {
     onAddCity: Addcityfunction,
     cityData: collectedData,
+    loading: loading,
+    Error: error,
   };
   return (
     <Weathercontext.Provider value={weatherData}>

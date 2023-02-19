@@ -1,19 +1,28 @@
-import React from "react";
-import Input from "../UIutilities/Input";
+import React, { useContext } from "react";
 import WeatherDetails from "../weatherDetails/WeatherDetails";
 import WeatherInfo from "../WeatherInformation/WeatherInfo";
 import classes from "./WeatherBox.module.scss";
-import ContextProvider from "../store/contextProvider";
+import WeatherForm from "../weatherForm/WeatherForm";
+import Weathercontext from "../store/Contextapi";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/Skeleton.css";
+import Weatherboxskeleton from "./weatherboxskeleton";
 
 function WeatherBox() {
+  const weathercontext = useContext(Weathercontext);
+  const loading = weathercontext.loading;
   return (
-    <ContextProvider>
-      <main className={classes.weatherbox}>
-        <Input />
-        <WeatherDetails />
-        <WeatherInfo />
-      </main>
-    </ContextProvider>
+    <>
+      {loading ? (
+        <Weatherboxskeleton />
+      ) : (
+        <main className={classes.weatherbox}>
+          <WeatherForm />
+          <WeatherDetails />
+          <WeatherInfo />
+        </main>
+      )}
+    </>
   );
 }
 

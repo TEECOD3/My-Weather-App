@@ -1,28 +1,39 @@
 //https://api.openweathermap.org/data/2.5/weather?q=lagos&appid=460add583d60f7ac623bc126ffcd2205
 //https://api.openweathermap.org/data/2.5/onecall?lat=3.75&lon=6.5833&appid=460add583d60f7ac623bc126ffcd2205
 
-const fetchWeatherdata = async (city) => {
-  const res = await fetch(
+//TODO fetching data
+const fetchWeatherdata = (city) => {
+  return fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=460add583d60f7ac623bc126ffcd2205`
-  );
-  const data = await res.json();
-  return data;
+  ).then((res) => res.json());
 };
 
 const formatcollectedData = (data) => {
   const {
-    main: { temp, feels_like, pressure, humidity },
+    main: {
+      temp,
+      temp_min,
+      temp_max,
+      feels_like,
+      sea_level,
+      grnd_level: ground_level,
+      pressure,
+      humidity,
+    },
     weather,
     visibility,
     dt,
     sys: { country, sunrise, sunset },
     timezone,
     name,
+    wind: { speed, deg },
   } = data;
 
-  const { main, description, icon } = weather[0];
+  const { main, description, icon } = weather?.[0];
 
   return {
+    ground_level,
+    sea_level,
     temp,
     feels_like,
     pressure,
@@ -37,6 +48,10 @@ const formatcollectedData = (data) => {
     main,
     description,
     icon,
+    temp_max,
+    temp_min,
+    speed,
+    deg,
   };
 };
 
