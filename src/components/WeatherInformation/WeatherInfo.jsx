@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Card from "../UIutilities/Card";
 import classes from "./WeatherInfo.module.scss";
-import "react-loading-skeleton/dist/Skeleton.css";
+
 import {
   WiCelsius,
   WiUmbrella,

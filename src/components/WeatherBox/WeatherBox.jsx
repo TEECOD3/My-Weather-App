@@ -4,7 +4,6 @@ import WeatherInfo from "../WeatherInformation/WeatherInfo";
 import classes from "./WeatherBox.module.scss";
 import WeatherForm from "../weatherForm/WeatherForm";
 import Weathercontext from "../store/Contextapi";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/Skeleton.css";
 import Weatherboxskeleton from "./weatherboxskeleton";
 

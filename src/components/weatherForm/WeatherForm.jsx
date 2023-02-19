@@ -3,7 +3,6 @@ import classes from "./WeatherForm.module.scss";
 import Weathercontext from "../store/Contextapi";
 import { useContext, useRef } from "react";
 import { motion } from "framer-motion";
-import Skeleton from "react-loading-skeleton";
 
 const WeatherForm = () => {
   const cityRef = useRef();
