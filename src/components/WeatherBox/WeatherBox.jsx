@@ -4,16 +4,21 @@ import WeatherInfo from "../WeatherInformation/WeatherInfo";
 import classes from "./WeatherBox.module.scss";
 import WeatherForm from "../weatherForm/WeatherForm";
 import Weathercontext from "../store/Contextapi";
-import Weatherboxskeleton from "./Weatherboxskeleton";
-import SkeletonDetails from "../weatherDetails/skeletonDetails";
+import SkeletonLoader from "../skeleton/skeleton";
 
 function WeatherBox() {
   const weathercontext = useContext(Weathercontext);
   const loading = weathercontext.loading;
+
+  const Paragraph = () => {
+    return <div className={classes.p}> loading....</div>;
+  };
+
   return (
     <>
-      {loading && <Weatherboxskeleton />}
-      {!loading && (
+      {loading ? (
+        <SkeletonLoader />
+      ) : (
         <main className={classes.weatherbox}>
           <WeatherForm />
           <WeatherDetails />

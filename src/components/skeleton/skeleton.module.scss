@@ -1,0 +1,46 @@
+.skeleton {
+  height: 80vh;
+  width: 50vw;
+  //   background-color: yellow;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 0.6rem;
+  animation: skeleton 1s ease infinite alternate;
+  &_search {
+    width: 100%;
+    padding: 2rem;
+    height: 15%;
+    // background-color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+    &_top {
+      width: 60%;
+      height: 4rem;
+      background-color: rgb(60, 66, 66);
+    }
+    &_button {
+      width: 30%;
+      height: 4rem;
+      background-color: rgb(60, 66, 66);
+    }
+  }
+  &_details,
+  &_info {
+    margin-top: 3em;
+    width: 95%;
+    margin-inline: auto;
+    height: 23rem;
+    background-color: rgb(60, 66, 66);
+  }
+}
+
+@keyframes skeleton {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}

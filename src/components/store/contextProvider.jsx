@@ -10,6 +10,7 @@ const ContextProvider = (props) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     try {
       setTimeout(async () => {
         const data = await fetchFomattedData(CurrentCity);
@@ -17,7 +18,8 @@ const ContextProvider = (props) => {
         setLoading(false);
       }, 1000);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
+      setLoading(false);
       SetError(true);
     }
     return () => clearTimeout();

@@ -4,7 +4,6 @@ import Card from "../UIutilities/Card";
 import { WiSunrise, WiSunset, WiDaySunny } from "react-icons/wi";
 import { motion } from "framer-motion";
 import Weathercontext from "../store/Contextapi";
-import SkeletonDetails from "./skeletonDetails";
 
 import fewCloudsday from "../../assets/WeatherIcons/30.png";
 import fewCloudsNight from "../../assets/WeatherIcons/29.png";

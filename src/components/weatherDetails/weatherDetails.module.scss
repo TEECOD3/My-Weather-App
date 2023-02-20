@@ -67,20 +67,7 @@
     }
   }
 }
-.skeleton {
-  background-color: #fff;
-  height: 30rem;
-  width: 60%;
-  margin: 0 auto;
-}
 
-.skeleton_top {
-  background-color: #43db28;
-  height: 20rem;
-  width: 60%;
-  z-index: 3;
-  margin: 0 auto;
-}
 @media (max-width: 50em) {
   .widget {
     &_container {

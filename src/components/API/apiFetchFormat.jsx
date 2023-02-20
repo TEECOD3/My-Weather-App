@@ -5,7 +5,9 @@
 const fetchWeatherdata = (city) => {
   return fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=460add583d60f7ac623bc126ffcd2205`
-  ).then((res) => res.json());
+  )
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
 };
 
 const formatcollectedData = (data) => {

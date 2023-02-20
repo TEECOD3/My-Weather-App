@@ -6,9 +6,9 @@ function Card({ children, className }) {
   const customClass = `${classes.card} ${className}`;
   return (
     <motion.section
-      initial={{ y: -400 }}
-      animate={{ y: 0 }}
-      transition={{ delay: 0.3, type: "spring", stiffness: 100 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 2 }}
+      transition={{ delay: 0.3, type: "tween", stiffness: 100 }}
       className={customClass}
     >
       {children}
