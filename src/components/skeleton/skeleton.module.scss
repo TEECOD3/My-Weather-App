@@ -36,6 +36,14 @@
   }
 }
 
+@media (max-width: 50em) {
+  .skeleton {
+    width: 80vw;
+    &_search {
+      padding: 0;
+    }
+  }
+}
 @keyframes skeleton {
   from {
     opacity: 0.4;
