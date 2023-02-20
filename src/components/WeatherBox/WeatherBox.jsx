@@ -4,7 +4,7 @@ import WeatherInfo from "../WeatherInformation/WeatherInfo";
 import classes from "./WeatherBox.module.scss";
 import WeatherForm from "../weatherForm/WeatherForm";
 import Weathercontext from "../store/Contextapi";
-import Weatherboxskeleton from "./weatherboxskeleton";
+import Weatherboxskeleton from "./Weatherboxskeleton";
 import SkeletonDetails from "../weatherDetails/skeletonDetails";
 
 function WeatherBox() {
