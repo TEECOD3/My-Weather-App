@@ -17,7 +17,7 @@ function WeatherInfo() {
   const { sea_level, ground_level, speed, humidity, pressure, feels_like } =
     weatherinfoctx?.cityData;
 
-  if (weatherinfoctx.cityData === {}) {
+  if (weatherinfoctx.cityData == {}) {
     weatherinfoctx.setError(true);
   }
 

@@ -3,7 +3,7 @@ import classes from "./WeatherForm.module.scss";
 import Weathercontext from "../store/Contextapi";
 import { useContext, useRef } from "react";
 import { motion } from "framer-motion";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const WeatherForm = () => {
@@ -16,7 +16,7 @@ const WeatherForm = () => {
     if (collectedCity === "") {
       return;
     } else {
-      toast.success(`${collectedCity} weatherminfo incoming 📩`, {
+      toast.success(`${collectedCity} weather info incoming 📩`, {
         style: {
           width: "200px",
           lineHeightStep: "20px",

@@ -5,7 +5,8 @@ import classes from "./WeatherBox.module.scss";
 import WeatherForm from "../weatherForm/WeatherForm";
 import Weathercontext from "../store/Contextapi";
 import SkeletonLoader from "../skeleton/skeleton";
-import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function WeatherBox() {
@@ -23,8 +24,7 @@ function WeatherBox() {
           <WeatherInfo />
         </main>
       )}
-      {/* {error && <ToastContainer className={classes.foo} />} */}
-      {/* console.log(error) */}
+      <ToastContainer />
     </>
   );
 }
