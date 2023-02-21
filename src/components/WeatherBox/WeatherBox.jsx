@@ -24,7 +24,7 @@ function WeatherBox() {
           <WeatherInfo />
         </main>
       )}
-      <ToastContainer />
+      <ToastContainer progressClassName="toast-progress" />
     </>
   );
 }

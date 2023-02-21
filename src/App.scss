@@ -73,19 +73,8 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
-.toast-message {
-  color: #ffffff;
-  font-size: 20px;
-  width: 20rem;
-  height: 0rem;
-  background-color: rgb(26, 27, 27);
-}
-.toastprogress {
-  background-color: #ffffff;
-}
-
-.toast-wrapper {
-  background-color: rgb(0, 255, 76);
+::selection {
+  background: none;
 }
 
 /*
