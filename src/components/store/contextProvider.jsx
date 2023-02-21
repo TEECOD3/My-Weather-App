@@ -18,7 +18,7 @@ const ContextProvider = (props) => {
       const data =
         (await fetchFomattedData(CurrentCity).catch((err) => {
           if (err) {
-            toast.error(`unable to fetch city`, {
+            toast.error(`unable to fetch city😒`, {
               style: {
                 width: "200px",
                 lineHeightStep: "20px",
