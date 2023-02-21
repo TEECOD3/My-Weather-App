@@ -4,6 +4,6 @@ const Weathercontext = React.createContext({
   onAddCity: (city) => {},
   cityData: {},
   loading: "",
-  error: "",
+  setError: "",
 });
 export default Weathercontext;

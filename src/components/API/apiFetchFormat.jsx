@@ -1,13 +1,13 @@
-//https://api.openweathermap.org/data/2.5/weather?q=lagos&appid=460add583d60f7ac623bc126ffcd2205
-//https://api.openweathermap.org/data/2.5/onecall?lat=3.75&lon=6.5833&appid=460add583d60f7ac623bc126ffcd2205
-
 //TODO fetching data
 const fetchWeatherdata = (city) => {
   return fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=460add583d60f7ac623bc126ffcd2205`
-  )
-    .then((res) => res.json())
-    .catch((err) => console.log(err));
+  ).then((res) => {
+    if (!res.ok) {
+      throw Error("wahala dey guy");
+    }
+    return res.json();
+  });
 };
 
 const formatcollectedData = (data) => {
@@ -58,7 +58,13 @@ const formatcollectedData = (data) => {
 };
 
 const fetchFomattedData = async (city) => {
-  const formattedData = await fetchWeatherdata(city).then(formatcollectedData);
+  const formattedData = await fetchWeatherdata(city)
+    .then(formatcollectedData)
+    .catch((err) => {
+      if (err) {
+        throw Error("still");
+      }
+    });
   return formattedData;
 };
 

@@ -21,6 +21,7 @@ import snowDay from "../../assets/WeatherIcons/41.png";
 import snowNight from "../../assets/WeatherIcons/42.png";
 import mistNight from "../../assets/WeatherIcons/21.png";
 import mistDay from "../../assets/WeatherIcons/34.png";
+import none from "../../assets/WeatherIcons/na.png";
 const weathericons = {
   "01d": clearSkyDay,
   "01n": clearSkyNight,
@@ -57,7 +58,7 @@ function WeatherWid(props) {
     temp_max,
     temp_min,
     dt,
-  } = WeatherContext.cityData;
+  } = WeatherContext?.cityData;
 
   const loading = WeatherContext.loading;
   const high = Math.round(temp_max - 273);
@@ -87,53 +88,47 @@ function WeatherWid(props) {
 
   return (
     <>
-      {loading ? (
-        <SkeletonTheme baseColor="black" highlightColor="green">
-          <SkeletonDetails />
-        </SkeletonTheme>
-      ) : (
-        <Card className={classes.widget_container}>
-          <div className={classes.widget_top}>
-            <div className={classes.widget_degs}>
-              <h1>{tempz}°</h1>
+      <Card className={classes.widget_container}>
+        <div className={classes.widget_top}>
+          <div className={classes.widget_degs}>
+            <h1>{tempz || 0}°</h1>
 
-              <motion.h3
-                initial={{ y: -800 }}
-                animate={{ y: 0 }}
-                transition={{ type: "spring", stiffness: 80 }}
-              >
-                {`${name} ${country}`}
-              </motion.h3>
-              <span>{`${fulldayFormat(dt)}`}</span>
-              <p>{description}</p>
-            </div>
-            <div className={classes.widget_img}>
-              <img
-                src={`${weathericons[icon]}`}
-                alt="weather image for weather condition"
-              />
-            </div>
+            <motion.h3
+              initial={{ y: -800 }}
+              animate={{ y: 0 }}
+              transition={{ type: "spring", stiffness: 80 }}
+            >
+              {`${name ?? "no"} ${country ?? "city found"}`}
+            </motion.h3>
+            <span>{`${fulldayFormat(dt)}`}</span>
+            <p>{description}</p>
           </div>
-          <div className={classes.widget_bottom}>
-            <span>
-              <WiSunrise className={classes.icon} />
-              <h1>rise: {timeformatter(sunrise)}</h1>
-            </span>
-            <span>
-              <WiSunset className={classes.icon} />
-              <h1>Set: {timeformatter(sunset)}</h1>
-            </span>
-            <span>
-              <WiDaySunny className={classes.icon} />
-              <h1>high {high}°</h1>
-            </span>
-            <span>
-              <WiDaySunny className={classes.icon} />
-              <h1> Low {low}°</h1>
-            </span>
+          <div className={classes.widget_img}>
+            <img
+              src={`${weathericons[icon] || none} `}
+              alt="weather image for weather condition"
+            />
           </div>
-        </Card>
-      )}
+        </div>
+        <div className={classes.widget_bottom}>
+          <span>
+            <WiSunrise className={classes.icon} />
+            <h1>rise: {timeformatter(sunrise)}</h1>
+          </span>
+          <span>
+            <WiSunset className={classes.icon} />
+            <h1>Set: {timeformatter(sunset)}</h1>
+          </span>
+          <span>
+            <WiDaySunny className={classes.icon} />
+            <h1>high {high || 0}°</h1>
+          </span>
+          <span>
+            <WiDaySunny className={classes.icon} />
+            <h1> Low {low || 0}°</h1>
+          </span>
+        </div>
+      </Card>
     </>
   );
 }

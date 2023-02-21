@@ -3,16 +3,35 @@ import classes from "./WeatherForm.module.scss";
 import Weathercontext from "../store/Contextapi";
 import { useContext, useRef } from "react";
 import { motion } from "framer-motion";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const WeatherForm = () => {
   const cityRef = useRef();
   const WeatherDataContext = useContext(Weathercontext);
 
-  const loading = WeatherDataContext.loading;
-
   const submitHandler = (event) => {
     event.preventDefault();
     const collectedCity = cityRef.current.value;
+    if (collectedCity === "") {
+      return;
+    } else {
+      toast.success("fetching", {
+        style: {
+          width: "200px",
+          lineHeightStep: "20px",
+          backgroundColor: "#141414",
+          fontSize: "15px",
+          borderRadius: "6px",
+          lineHeight: "20px",
+          height: "10px",
+          padding: "0",
+          margin: "0",
+        },
+        position: toast.POSITION.BOTTOM_CENTER,
+        autoClose: 1000,
+      });
+    }
     WeatherDataContext.onAddCity(collectedCity);
     cityRef.current.value = "";
   };
@@ -31,6 +50,7 @@ const WeatherForm = () => {
               type: "text",
               placeholder: "search city here ..",
               id: "city input",
+              required: "required",
             }}
             className={classes.input}
           />
@@ -43,6 +63,11 @@ const WeatherForm = () => {
           </button>
         </form>
       </motion.div>
+
+      <ToastContainer
+        progressClassName="toastProgress"
+        bodyClassName="toastBody"
+      />
     </>
   );
 };

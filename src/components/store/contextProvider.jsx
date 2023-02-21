@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Weathercontext from "./Contextapi";
 import fetchFomattedData from "../API/apiFetchFormat";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ContextProvider = (props) => {
   const { children } = props;
@@ -11,17 +13,18 @@ const ContextProvider = (props) => {
 
   useEffect(() => {
     setLoading(true);
-    try {
-      setTimeout(async () => {
-        const data = await fetchFomattedData(CurrentCity);
-        SetCollectedData(data);
-        setLoading(false);
-      }, 1000);
-    } catch (error) {
-      // console.log(error);
+
+    setTimeout(async () => {
+      const data =
+        (await fetchFomattedData(CurrentCity).catch((err) => {
+          if (err) {
+            console.log(error);
+          }
+        })) ?? {};
+      SetCollectedData(data);
       setLoading(false);
-      SetError(true);
-    }
+    }, 1000);
+
     return () => clearTimeout();
   }, [CurrentCity]);
 
@@ -34,8 +37,10 @@ const ContextProvider = (props) => {
     onAddCity: Addcityfunction,
     cityData: collectedData,
     loading: loading,
-    Error: error,
+    city: CurrentCity,
+    error: error,
   };
+
   return (
     <Weathercontext.Provider value={weatherData}>
       {children}
