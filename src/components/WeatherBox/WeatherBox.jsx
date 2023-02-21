@@ -23,7 +23,7 @@ function WeatherBox() {
           <WeatherInfo />
         </main>
       )}
-      <ToastContainer className={classes.foo} />
+      {/* {error && <ToastContainer className={classes.foo} />} */}
       {/* console.log(error) */}
     </>
   );

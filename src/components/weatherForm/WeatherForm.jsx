@@ -16,7 +16,7 @@ const WeatherForm = () => {
     if (collectedCity === "") {
       return;
     } else {
-      toast.success(`${collectedCity} weatherinfo incoming 📩`, {
+      toast.success(`${collectedCity} weatherminfo incoming 📩`, {
         style: {
           width: "200px",
           lineHeightStep: "20px",
@@ -64,10 +64,7 @@ const WeatherForm = () => {
         </form>
       </motion.div>
 
-      <ToastContainer
-        progressClassName="toastProgress"
-        bodyClassName="toastBody"
-      />
+      <ToastContainer />
     </>
   );
 };
