@@ -16,7 +16,7 @@ const WeatherForm = () => {
     if (collectedCity === "") {
       return;
     } else {
-      toast.success("fetching", {
+      toast.success(`${collectedCity} weatherinfo incoming 📩`, {
         style: {
           width: "200px",
           lineHeightStep: "20px",
