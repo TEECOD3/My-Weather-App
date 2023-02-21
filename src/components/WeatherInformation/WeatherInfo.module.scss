@@ -60,6 +60,9 @@
   background-color: rgba(206, 17, 17, 0.37);
   border-radius: 2rem;
 }
+::selection {
+  background: none;
+}
 @media (max-width: 50em) {
   .weather_info {
     width: 100%;
