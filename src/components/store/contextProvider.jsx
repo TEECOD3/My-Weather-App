@@ -18,7 +18,7 @@ const ContextProvider = (props) => {
       const data =
         (await fetchFomattedData(CurrentCity).catch((err) => {
           if (err) {
-            toast.error(`unable to fetch city😒`, {
+            toast.error(`city not found try again😒`, {
               style: {
                 width: "200px",
                 lineHeightStep: "20px",
@@ -30,7 +30,7 @@ const ContextProvider = (props) => {
                 padding: "0",
                 margin: "0",
               },
-              position: toast.POSITION.BOTTOM_CENTER,
+              position: toast.POSITION.TOP_LEFT,
               autoClose: 1000,
             });
           }

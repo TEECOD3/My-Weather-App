@@ -3,7 +3,7 @@ import classes from "./WeatherForm.module.scss";
 import Weathercontext from "../store/Contextapi";
 import { useContext, useRef } from "react";
 import { motion } from "framer-motion";
-import { ToastContainer, toast, Slide } from "react-toastify";
+import { ToastContainer, toast, Slide, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const WeatherForm = () => {
@@ -14,6 +14,21 @@ const WeatherForm = () => {
     event.preventDefault();
     const collectedCity = cityRef.current.value;
     if (collectedCity === "") {
+      toast.success(`input a city😒 `, {
+        style: {
+          width: "200px",
+          lineHeightStep: "20px",
+          backgroundColor: "#141414",
+          fontSize: "15px",
+          borderRadius: "6px",
+          lineHeight: "20px",
+          height: "10px",
+          padding: "0",
+          margin: "0",
+        },
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 1000,
+      });
       return;
     } else {
       toast.success(`${collectedCity} weather info incoming 📩`, {
@@ -28,6 +43,7 @@ const WeatherForm = () => {
           padding: "0",
           margin: "0",
         },
+        transition: Flip,
         position: toast.POSITION.BOTTOM_CENTER,
         autoClose: 1000,
       });
