@@ -58,14 +58,23 @@ const formatcollectedData = (data) => {
 };
 
 const fetchFomattedData = async (city) => {
-  const formattedData = await fetchWeatherdata(city)
-    .then(formatcollectedData)
-    .catch((err) => {
-      if (err) {
-        throw Error("still");
-      }
-    });
-  return formattedData;
+  // const formattedData = await fetchWeatherdata(city)
+
+  try {
+    const data = await fetchWeatherdata(city);
+    const formattedData = formatcollectedData(data);
+    return formattedData;
+  } catch (error) {
+    throw Error("still error");
+  }
+
+  //   .then(formatcollectedData)
+  //   .catch((err) => {
+  //     if (err) {
+  //       throw Error("still");
+  //     }
+  //   });
+  // return formattedData;
 };
 
 export default fetchFomattedData;

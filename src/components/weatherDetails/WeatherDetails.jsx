@@ -43,9 +43,7 @@ const weathericons = {
   "50n": mistNight,
 };
 
-function WeatherWid(props) {
-  const {} = props;
-
+function WeatherWid() {
   const WeatherContext = useContext(Weathercontext);
   const {
     temp,
@@ -58,9 +56,8 @@ function WeatherWid(props) {
     temp_max,
     temp_min,
     dt,
-  } = WeatherContext?.cityData;
+  } = WeatherContext?.cityData || {};
 
-  const loading = WeatherContext.loading;
   const high = Math.round(temp_max - 273);
   const low = Math.round(temp_min - 273);
   const tempz = Math.round(temp - 273);
