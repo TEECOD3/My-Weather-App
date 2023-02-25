@@ -58,8 +58,6 @@ const formatcollectedData = (data) => {
 };
 
 const fetchFomattedData = async (city) => {
-  // const formattedData = await fetchWeatherdata(city)
-
   try {
     const data = await fetchWeatherdata(city);
     const formattedData = formatcollectedData(data);
@@ -67,7 +65,7 @@ const fetchFomattedData = async (city) => {
   } catch (error) {
     throw Error("still error");
   }
-
+  // const formattedData = await fetchWeatherdata(city)
   //   .then(formatcollectedData)
   //   .catch((err) => {
   //     if (err) {

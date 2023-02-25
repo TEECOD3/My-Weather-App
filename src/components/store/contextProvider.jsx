@@ -19,6 +19,7 @@ const ContextProvider = (props) => {
         setLoading(false);
       } catch (error) {
         if (error) {
+          SetCollectedData({});
           toast.error(`city not found try again😒`, {
             style: {
               width: "200px",
